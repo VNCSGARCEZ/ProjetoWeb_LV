@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Reviews - Página Inicial</title>
+    <!-- Link para o CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <!-- Link para o seu CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .game-carousel img {
+            max-height: 500px; /* Define a altura máxima da imagem no carrossel */
+            object-fit: cover; /* Faz com que a imagem cubra a área sem distorcer */
+        }
+        .card-img-top {
+            max-width: 100%; /* Ajusta a largura da imagem para preencher a largura do card */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+        .review-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Game Reviews</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jogos Populares</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Análises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrossel de jogos em destaque -->
+    <div id="gameCarousel" class="carousel slide game-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/jogo1.png' %}" class="d-block w-100" alt="Game 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/jogo2.png' %}" class="d-block w-100" alt="Game 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/jogo3.png' %}" class="d-block w-100" alt="Game 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+
+    <!-- Seção de jogos populares -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Jogos Populares</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/game1.png' %}" class="card-img-top" alt="Jogo 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Black Myth Wukong</h5>
+                        <p class="card-text">Black Myth: Wukong é um RPG de ação inspirado na mitologia chinesa. Você assume o papel do Predestinado e tem a responsabilidade de encarar os desafios e as maravilhas do mundo para desvendar a verdade obscura por trás de uma lenda gloriosa do passado.</p>
+                        <a href="#" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/game2.png' %}" class="card-img-top" alt="Jogo 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Hades 2</h5>
+                        <p class="card-text">Transcenda o Submundo com feitiços das trevas para enfrentar o titã do tempo nesta sequência mágica do premiado roguelike de exploração de masmorras.</p>
+                        <a href="#" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'img/game3.png' %}" class="card-img-top" alt="Jogo 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Elden Ring</h5>
+                        <p class="card-text">O NOVO RPG DE AÇÃO E FANTASIA. Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.</p>
+                        <a href="#" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de análises -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Escreva sua Análise</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="review-form">
+                    <form>
+                        <div class="mb-3">
+                            <label for="gameName" class="form-label">Nome do Jogo</label>
+                            <input type="text" class="form-control" id="gameName" placeholder="Digite o nome do jogo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="gameReview" class="form-label">Sua Análise</label>
+                            <textarea class="form-control" id="gameReview" rows="5" placeholder="Escreva sua análise"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Análise</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Game Reviews | Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

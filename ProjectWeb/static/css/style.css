@@ -1,0 +1,28 @@
+/* static/css/style.css */
+
+/* Estiliza os botões */
+.btn {
+    background-color: #007bff; /* Cor de fundo inicial */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+    padding: 0.5rem 1rem; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animação suave para a cor e transformação */
+}
+
+.btn:hover, .btn:focus {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento de tamanho ao passar o mouse */
+}
+
+/* Estiliza o botão primário (se você estiver usando a classe btn-primary do Bootstrap) */
+.btn-primary {
+    background-color: #007bff; /* Cor de fundo inicial */
+    border-color: #007bff; /* Cor da borda */
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    border-color: #004085; /* Cor da borda ao passar o mouse */
+}
