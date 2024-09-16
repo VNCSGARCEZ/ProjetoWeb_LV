@@ -1,5 +1,3 @@
-/* static/css/style.css */
-
 /* Estiliza os botões */
 .btn {
     background-color: #007bff; /* Cor de fundo inicial */
@@ -25,4 +23,33 @@
 .btn-primary:hover, .btn-primary:focus {
     background-color: #0056b3; /* Cor de fundo ao passar o mouse */
     border-color: #004085; /* Cor da borda ao passar o mouse */
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    direction: rtl; /* Estrelas da direita para a esquerda */
+}
+
+.rating input {
+    display: none; /* Oculta os botões de rádio */
+}
+
+.rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.rating label:before {
+    content: "\2605"; /* Caractere de estrela */
+}
+
+.rating input:checked ~ label {
+    color: blue; /* Cor das estrelas selecionadas */
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: blue; /* Cor ao passar o mouse sobre as estrelas */
 }
