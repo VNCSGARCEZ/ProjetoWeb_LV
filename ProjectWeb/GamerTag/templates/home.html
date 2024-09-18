@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Reviews - Página Inicial</title>
-    <!-- Link para o CSS do Bootstrap -->
+    <title>GamerTag Reviews - Página Inicial</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <!-- Link para o seu CSS personalizado -->
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         .navbar-brand {
@@ -16,26 +16,26 @@
             font-weight: bold;
         }
         .game-carousel img {
-            max-height: 500px; /* Define a altura máxima da imagem no carrossel */
-            object-fit: cover; /* Faz com que a imagem cubra a área sem distorcer */
+            max-height: 500px;
+            object-fit: cover;
         }
         .card-img-top {
-            max-width: 100%; /* Ajusta a largura da imagem para preencher a largura do card */
-            height: auto; /* Mantém a proporção da imagem */
+            max-width: 100%;
+            height: auto;
         }
         .review-form {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 10px;
         }
-        /* Estilo para a avaliação por estrelas */
+
         .rating {
             display: flex;
             justify-content: center;
-            direction: rtl; /* Estrelas da direita para a esquerda */
+            direction: rtl;
         }
         .rating input {
-            display: none; /* Oculta os botões de rádio */
+            display: none;
         }
         .rating label {
             font-size: 2rem;
@@ -43,20 +43,20 @@
             cursor: pointer;
         }
         .rating label:before {
-            content: "\2605"; /* Caractere de estrela */
+            content: "\2605";
         }
         .rating input:checked ~ label {
-            color: blue; /* Cor das estrelas selecionadas */
+            color: blue;
         }
         .rating label:hover,
         .rating label:hover ~ label {
-            color: blue; /* Cor ao passar o mouse sobre as estrelas */
+            color: blue;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Game Reviews</a>
@@ -82,7 +82,7 @@
         </div>
     </nav>
 
-    <!-- Carrossel de jogos em destaque -->
+
     <div id="gameCarousel" class="carousel slide game-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -105,7 +105,7 @@
         </button>
     </div>
 
-    <!-- Seção de jogos populares -->
+
     <div class="container my-5">
         <h2 class="text-center mb-4">Jogos Populares</h2>
         <div class="row">
@@ -142,11 +142,11 @@
         </div>
     </div>
 
-<!-- Seção de análises -->
+
     <div class="container my-5">
     <h2 class="text-center mb-4">Escreva sua Análise</h2>
 
-    <!-- Exibir mensagem de erro se a imagem for grande demais -->
+
     {% if error_message %}
         <div class="alert alert-danger" role="alert">
             {{ error_message }}
@@ -187,12 +187,12 @@
     </div>
 </div>
 
-    <!-- Footer -->
+
     <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2024 Game Reviews | Todos os direitos reservados</p>
+        <p>&copy; 2024 GamerTag | Todos os direitos reservados</p>
     </footer>
 
-    <!-- Scripts do Bootstrap -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
