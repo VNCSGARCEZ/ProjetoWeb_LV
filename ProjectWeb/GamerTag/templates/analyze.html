@@ -5,15 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Reviews - Análises</title>
+    <title>GamerTag Reviews - Análises</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Game Reviews</a>
+            <a class="navbar-brand" href="#">GamerTag Reviews</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,28 +36,28 @@
         </div>
     </nav>
 
-<!-- Seção de análises enviadas -->
+
 <div class="container my-5">
     <h2 class="text-center mb-4">Análises Enviadas</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <!-- Verifica se existem análises -->
+
             {% if reviews %}
                 <ul class="list-group">
-                    <!-- Loop através de todas as análises -->
+
                     {% for review in reviews %}
                         <li class="list-group-item">
                             <h5>{{ review.game_name }}</h5>
                             <p>{{ review.game_review }}</p>
                             <p><strong>Nota:</strong> {{ review.rating }}</p>
 
-                            <!-- Exibir a imagem se existir -->
+
                             {% if review.game_image %}
                                 <img src="{% static 'uploads/'|add:review.game_image %}" alt="Imagem do jogo" class="img-fluid" style="max-width: 600px; max-height: 900px;">
                             {% endif %}
 
-                            <!-- Botão para apagar a análise -->
+
                             <form method="POST" action="{% url 'delete_review' review_id=forloop.counter0 %}">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger mt-3">Excluir</button>
@@ -73,12 +73,12 @@
 </div>
 
 
-    <!-- Footer -->
+
     <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2024 Game Reviews | Todos os direitos reservados</p>
+        <p>&copy; 2024 GamerTag | Todos os direitos reservados</p>
     </footer>
 
-    <!-- Scripts do Bootstrap -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
