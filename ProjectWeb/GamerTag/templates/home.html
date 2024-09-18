@@ -143,8 +143,16 @@
     </div>
 
 <!-- Seção de análises -->
-<div class="container my-5">
+    <div class="container my-5">
     <h2 class="text-center mb-4">Escreva sua Análise</h2>
+
+    <!-- Exibir mensagem de erro se a imagem for grande demais -->
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+    {% endif %}
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="review-form">
@@ -169,7 +177,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="gameImage" class="form-label">Poster Personalizado</label>
+                        <label for="gameImage" class="form-label">Poster Personalizado (máx: 600x900)</label>
                         <input type="file" class="form-control" id="gameImage" name="gameImage" accept="image/*">
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Análise</button>
@@ -178,6 +186,7 @@
         </div>
     </div>
 </div>
+
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
         <p>&copy; 2024 Game Reviews | Todos os direitos reservados</p>

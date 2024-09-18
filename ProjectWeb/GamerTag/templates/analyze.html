@@ -36,28 +36,42 @@
         </div>
     </nav>
 
-    <!-- Seção de análises -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Análises</h2>
-        {% if reviews %}
-        <div class="list-group">
-            {% for review in reviews %}
-            <div class="list-group-item">
-                <h5 class="mb-1">{{ review.game_name }}</h5>
-                <p class="mb-1">{{ review.game_review }}</p>
-                <small>Nota: {{ review.rating }} estrelas</small>
-                {% if review.game_image %}
-                <div class="mt-2">
-                    <img src="{{ review.game_image }}" alt="Imagem do Jogo" class="img-fluid">
-                </div>
-                {% endif %}
-            </div>
-            {% endfor %}
+<!-- Seção de análises enviadas -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Análises Enviadas</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <!-- Verifica se existem análises -->
+            {% if reviews %}
+                <ul class="list-group">
+                    <!-- Loop através de todas as análises -->
+                    {% for review in reviews %}
+                        <li class="list-group-item">
+                            <h5>{{ review.game_name }}</h5>
+                            <p>{{ review.game_review }}</p>
+                            <p><strong>Nota:</strong> {{ review.rating }}</p>
+
+                            <!-- Exibir a imagem se existir -->
+                            {% if review.game_image %}
+                                <img src="{% static 'uploads/'|add:review.game_image %}" alt="Imagem do jogo" class="img-fluid" style="max-width: 600px; max-height: 900px;">
+                            {% endif %}
+
+                            <!-- Botão para apagar a análise -->
+                            <form method="POST" action="{% url 'delete_review' review_id=forloop.counter0 %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger mt-3">Excluir</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-center">Nenhuma análise enviada ainda.</p>
+            {% endif %}
         </div>
-        {% else %}
-        <p class="text-center">Nenhuma análise disponível.</p>
-        {% endif %}
     </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
