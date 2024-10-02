@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from PIL import Image  # Biblioteca para manipulação de imagens
 
-# View para a página de login
+
 class IndexView(TemplateView):
     template_name = "index.html"
 
@@ -14,7 +14,7 @@ class IndexView(TemplateView):
             return redirect('/home/')
         return self.get(request, *args, **kwargs)
 
-# View para a página home
+
 class HomeView(TemplateView):
     template_name = "home.html"
 
@@ -24,21 +24,21 @@ class HomeView(TemplateView):
         rating = request.POST.get('rating')
         game_image = request.FILES.get('gameImage')
 
-        # Verificação do tamanho da imagem
+
         if game_image:
             img = Image.open(game_image)
             max_width, max_height = 600, 900
             if img.width > max_width or img.height > max_height:
-                # Se a imagem exceder o tamanho permitido, retorna a página com uma mensagem de erro
+
                 return render(request, 'home.html', {
                     'error_message': f'A imagem deve ter no máximo {max_width}x{max_height} pixels.',
                 })
 
-        # Armazenar os dados na sessão
+
         if 'reviews' not in request.session:
             request.session['reviews'] = []
 
-        # Criar um dicionario para armazenar as informações da análise
+
         review = {
             'game_name': game_name,
             'game_review': game_review,
@@ -51,7 +51,7 @@ class HomeView(TemplateView):
 
         return redirect('/analyze/')
 
-# View para a página de análises
+
 class AnalyzeView(TemplateView):
     template_name = "analyze.html"
 
@@ -60,7 +60,7 @@ class AnalyzeView(TemplateView):
         context['reviews'] = self.request.session.get('reviews', [])
         return context
 
-# Função para excluir uma análise com base no índice
+
 def delete_review(request, review_id):
     if 'reviews' in request.session:
         reviews = request.session['reviews']

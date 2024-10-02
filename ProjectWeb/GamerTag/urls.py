@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path
 from .views import IndexView, HomeView, AnalyzeView, delete_review
 
+
 urlpatterns = [
     path('', IndexView.as_view(), name='inicio'),
     path('home/', HomeView.as_view(), name='home'),

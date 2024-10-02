@@ -52,7 +52,7 @@
                             <p>{{ review.game_review }}</p>
                             <p><strong>Nota:</strong> {{ review.rating }}</p>
 
-                            <!-- Exibir a imagem se existir -->
+                            <!-- Exibir a imagem -->
                             {% if review.game_image %}
                                 <img src="{% static 'uploads/'|add:review.game_image %}" alt="Imagem do jogo" class="img-fluid" style="max-width: 600px; max-height: 900px;">
                             {% endif %}

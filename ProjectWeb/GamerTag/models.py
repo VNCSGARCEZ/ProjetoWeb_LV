@@ -7,5 +7,6 @@ class GameReview(models.Model):
     game_rating = models.IntegerField()
     image = models.ImageField(upload_to='game_images/', null=True, blank=True)
 
+
     def __str__(self):
         return self.game_name
