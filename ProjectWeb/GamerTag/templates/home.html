@@ -16,26 +16,26 @@
             font-weight: bold;
         }
         .game-carousel img {
-            max-height: 500px;
-            object-fit: cover;
+            max-height: 500px; /* Define a altura máxima da imagem no carrossel */
+            object-fit: cover; /* Faz com que a imagem cubra a área sem distorcer */
         }
         .card-img-top {
-            max-width: 100%;
-            height: auto;
+            max-width: 100%; /* Ajusta a largura da imagem para preencher a largura do card */
+            height: auto; /* Mantém a proporção da imagem */
         }
         .review-form {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 10px;
         }
-
+        /* Estilo para a avaliação por estrelas */
         .rating {
             display: flex;
             justify-content: center;
-            direction: rtl;
+            direction: rtl; /* Estrelas da direita para a esquerda */
         }
         .rating input {
-            display: none;
+            display: none; /* Oculta os botões de rádio */
         }
         .rating label {
             font-size: 2rem;
@@ -43,14 +43,14 @@
             cursor: pointer;
         }
         .rating label:before {
-            content: "\2605";
+            content: "\2605"; /* Caractere de estrela */
         }
         .rating input:checked ~ label {
-            color: blue;
+            color: blue; /* Cor das estrelas selecionadas */
         }
         .rating label:hover,
         .rating label:hover ~ label {
-            color: blue;
+            color: blue; /* Cor ao passar o mouse sobre as estrelas */
         }
     </style>
 </head>
