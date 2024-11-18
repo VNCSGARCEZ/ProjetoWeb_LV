@@ -9,4 +9,6 @@ urlpatterns = [
     path('home/', HomeView.as_view(), name='home'),
     path('analyze/', AnalyzeView.as_view(), name='analyze'),
     path('delete_review/<int:review_id>/', delete_review, name='delete_review'),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

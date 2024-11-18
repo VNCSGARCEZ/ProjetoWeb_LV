@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Jogos Populares</a>
@@ -107,7 +107,7 @@
 
 
     <div class="container my-5">
-        <h2 class="text-center mb-4">Jogos Populares |</h2>
+        <h2 class="text-center mb-4">Jogos Populares </h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -164,9 +164,18 @@
                         <input type="text" class="form-control" id="gameName" name="gameName" placeholder="Digite o nome do jogo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="gameReview" class="form-label">Sua Análise</label>
-                        <textarea class="form-control" id="gameReview" name="gameReview" rows="5" placeholder="Escreva sua análise" required></textarea>
+                    <label for="gameReview" class="form-label">Sua Análise</label>
+                    <textarea
+                        class="form-control"
+                        id="gameReview"
+                        name="gameReview"
+                        rows="5"
+                        placeholder="Escreva sua análise (máx. 1000 palavras)"
+                        maxlength="1000"
+                        required
+                    ></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label for="gameRating" class="form-label">Sua Nota</label>
                         <div class="rating">
