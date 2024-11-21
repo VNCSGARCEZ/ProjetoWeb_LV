@@ -56,23 +56,10 @@
         white-space: normal; /* Permite quebra de linha no texto */
     }
 
-    /* Ajuste do botão de exclusão */
-    .btn-danger {
+    /* Ajuste do botão */
+    .btn-action {
         margin-top: 15px;
-    }
-
-    /* ===== Ajuste das setas do carrossel ===== */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.6); /* Fundo mais escuro para melhor visibilidade */
-        border: 2px solid #fff; /* Contorno branco ao redor da seta */
-        border-radius: 55%; /* Bordas arredondadas para as setas */
-        padding: 10px; /* Adiciona um espaço ao redor das setas */
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        opacity: 1; /* Garante que as setas sejam sempre visíveis */
+        margin-right: 5px;
     }
 </style>
 
@@ -133,11 +120,14 @@
                                                 <p class="card-text">{{ review.game_review }}</p>
                                                 <p><strong>Nota:</strong> {{ review.game_rating }}</p>
 
-                                                <!-- Botão para apagar a análise -->
-                                                <form method="POST" action="{% url 'delete_review' review.id %}">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn btn-danger mt-3">Excluir</button>
-                                                </form>
+                                                <!-- Botões para editar e apagar a análise -->
+                                                <div class="d-flex">
+                                                    <a href="{% url 'update_review' review.id %}" class="btn btn-warning btn-action">Editar</a>
+                                                    <form method="POST" action="{% url 'delete_review' review.id %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger btn-action">Excluir</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
